@@ -1,89 +1,142 @@
-# goit-js-hw-01
+Домашнє завдання №4
+Створи репозиторій goit-js-hw-04 та склонюй його собі на комп’ютер.
+У папці goit-js-hw-04 створи структуру проєкта, як показано на схемі нижче.
+Зверни увагу!
+Імена файлів та папок, а також їх структура вкладеності, мають відповідати вказаній схемі. В іншому разі робота не буде прийнята.
 
-Домашнє завдання №1
-
-Створи репозиторій goit-js-hw-01 та склонюй його собі на комп’ютер.
-У папці goit-js-hw-01 створи структуру проєкта, як показано на схемі нижче.
-
-Зверни увагу! Імена файлів та папок, а також їх структура вкладеності, мають відповідати вказаній схемі. В іншому разі робота не буде прийнята.
-
+Структура репозиторія
 Прочитай кожне завдання і виконай його у відповідному файлі.
-Переконайся, що код відформатований за допомогою Prettier, а в консолі відсутні помилки і попередження під час відкриття живої сторінки завдання.
-Здай домашнє завдання на ментору на платформі LMS.
+Переконайся, що код відформатований за допомогою Prettier, а в консолі відсутні помилки й попередження під час відкриття живої сторінки завдання.
+Здай домашнє завдання на перевірку.
+Формат здачі: Домашня робота містить два посилання: на вихідні файли та робочу сторінку на GitHub Pages.
 
-Формат здачі: Домашня робота містить два посилання: на вихідні файли (посилання на репозиторій з кодом) і живу сторінку на GitHub Pages.
-
-Задача 1. Замовлення дроїдів
-
+Задача 1. Пакування товарів
 Виконуй це завдання у файлі task-1.js
+Напиши функцію isEnoughCapacity(products, containerSize), яка обчислює, чи помістяться всі товари в контейнер при пакуванні.
 
-Станція з продажу ремонтних дроїдів готова до запуску, залишилося написати програмне забезпечення для відділу продажів.
+Функція оголошує два параметри:
 
-Оголоси функцію makeTransaction, яка очікує два параметри, значення яких будуть задаватися під час її виклику: • quantity— перший параметр, число, що містить кількість замовлених дроїдів • pricePerDroid — другий параметр, число, що містить вартість одного дроїда
+products — об’єкт, у якому ключі містять назви товарів, а їхні значення — кількість цих товарів. Наприклад, { apples: 2, grapes: 4 }.
+containerSize — число, максимальна кількість одиниць товарів, яку в себе може вмістити контейнер.
+Функція має повернути результат перевірки, чи помістяться всі товари в контейнер. Тобто порахувати загальну кількість товарів в об’єкті products і повернути true, якщо вона менше або дорівнює containerSize, і false, якщо ні.
 
-Доповни код функції так, щоб вона повертала рядок з повідомленням про покупку ремонтних дроїдів: "You ordered <quantity> droids worth <totalPrice> credits!", де: • <quantity> — це кількість замовлених дроїдів • <totalPrice> — це загальна вартість замовлення, тобто вартість усіх замовлених дроїдів
+Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи. У консоль будуть виведені результати її викликів.
 
-Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи. У консоль будуть виведені результати її роботи.
+console.log(
+isEnoughCapacity({ apples: 2, grapes: 3, carrots: 1 }, 8)
+); // true
 
-console.log(makeTransaction(5, 3000)); // "You ordered 5 droids worth 15000 credits!"
-console.log(makeTransaction(3, 1000)); // "You ordered 3 droids worth 3000 credits!"
-console.log(makeTransaction(10, 500)); // "You ordered 10 droids worth 5000 credits!"
+console.log(
+isEnoughCapacity({ apples: 4, grapes: 6, lime: 16 }, 12)
+); // false
+
+console.log(
+isEnoughCapacity({ apples: 1, lime: 5, tomatoes: 3 }, 14)
+); // true
+
+console.log(
+isEnoughCapacity({ apples: 18, potatoes: 5, oranges: 2 }, 7)
+); // false
 
 Залиш цей код для перевірки ментором.
 
 На що буде звертати увагу ментор при перевірці:
-
-Оголошена функція makeTransaction(quantity, pricePerDroid)
-Виклик makeTransaction(5, 3000) повертає "You ordered 5 droids worth 15000 credits!"
-Виклик makeTransaction(3, 1000) повертає "You ordered 3 droids worth 3000 credits!"
-Виклик makeTransaction(10, 500) повертає "You ordered 10 droids worth 5000 credits!"
-В консоль виведині всі результаті викликів
-Виклик makeTransaction з будь якими-валідними аргументами повертає правильне значення
-
-Задача 2. Доставка товару
-
+Оголошена функція isEnoughCapacity(products, containerSize)
+Виклик isEnoughCapacity({ apples: 2, grapes: 3, carrots: 1 }, 8) повертає true
+Виклик isEnoughCapacity({ apples: 4, grapes: 6, lime: 16 }, 12) повертає false
+Виклик isEnoughCapacity({ apples: 1, lime: 5, tomatoes: 3 }, 14) повертає true
+Виклик isEnoughCapacity({ apples: 18, potatoes: 5, oranges: 2 }, 7) повертає false
+Задача 2. Розрахунок калорій
 Виконуй це завдання у файлі task-2.js
+Напиши функцію calcAverageCalories(days), яка повертає середньодобове значення кількості калорій, які спортсмен споживав протягом тижня. Функція очікує один параметр: days — масив об’єктів. Кожен об’єкт описує день тижня та кількість калорій calories, спожитих спортсменом, у цей день. Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи. У консоль будуть виведені результати її викликів.
 
-Оголоси функцію getShippingMessage, яка очікує три параметри, значення яких будуть задаватися під час її виклику: • country — перший параметр, рядок, що містить країну доставки • price — другий параметр, число, що містить загальну вартість товару • deliveryFee — третій параметр, число, що містить вартість доставки товару
+console.log(
+calcAverageCalories([
+{ day: "monday", calories: 3010 },
+{ day: "tuesday", calories: 3200 },
+{ day: "wednesday", calories: 3120 },
+{ day: "thursday", calories: 2900 },
+{ day: "friday", calories: 3450 },
+{ day: "saturday", calories: 3280 },
+{ day: "sunday", calories: 3300 }
+])
+); // 3180
 
-Доповни код функції так, щоб вона повертала рядок з повідомленням про доставку товару в країну користувача: "Shipping to <country> will cost <totalPrice> credits", де: • <country> — це країни доставки • <totalPrice> — це загальна вартість замовлення, що включає вартість товару і його доставки
+console.log(
+calcAverageCalories([
+{ day: "monday", calories: 2040 },
+{ day: "tuesday", calories: 2270 },
+{ day: "wednesday", calories: 2420 },
+{ day: "thursday", calories: 1900 },
+{ day: "friday", calories: 2370 },
+{ day: "saturday", calories: 2280 },
+{ day: "sunday", calories: 2610 }
+])
+); // 2270
 
-Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи. У консоль будуть виведені результати її роботи.
-
-console.log(getShippingMessage("Australia", 120, 50)); // "Shipping to Australia will cost 170 credits"
-console.log(getShippingMessage("Germany", 80, 20)); // "Shipping to Germany will cost 100 credits"
-console.log(getShippingMessage("Sweden", 100, 20)); // "Shipping to Sweden will cost 120 credits"
+console.log(
+calcAverageCalories([])
+); // 0
 
 Залиш цей код для перевірки ментором.
 
 На що буде звертати увагу ментор при перевірці:
+Оголошена функція calcAverageCalories(days)
+Такий виклик функції calcAverageCalories повертає 3180
+calcAverageCalories([
+{ day: "monday", calories: 3010 },
+{ day: "tuesday", calories: 3200 },
+{ day: "wednesday", calories: 3120 },
+{ day: "thursday", calories: 2900 },
+{ day: "friday", calories: 3450 },
+{ day: "saturday", calories: 3280 },
+{ day: "sunday", calories: 3300 }
+])
 
-Оголошена функція getShippingMessage(country, price, deliveryFee)
-Виклик getShippingMessage("Australia", 120, 50) повертає "Shipping to Australia will cost 170 credits"
-Виклик getShippingMessage("Germany", 80, 20) повертає "Shipping to Germany will cost 100 credits"
-Виклик getShippingMessage("Sweden", 100, 20) повертає "Shipping to Sweden will cost 120 credits"
-Виклик getShippingMessage з будь якими-валідними аргументами повертає правильне значення
+Такий виклик функції calcAverageCalories повертає 2270
+calcAverageCalories([
+{ day: "monday", calories: 2040 },
+{ day: "tuesday", calories: 2270 },
+{ day: "wednesday", calories: 2420 },
+{ day: "thursday", calories: 1900 },
+{ day: "friday", calories: 2370 },
+{ day: "saturday", calories: 2280 },
+{ day: "sunday", calories: 2610 }
+])
 
-Задача 3. Ширина елемента
+Такий виклик функції calcAverageCalories повертає 0
+calcAverageCalories([])
 
+Задача 3. Профіль гравця
 Виконуй це завдання у файлі task-3.js
+Об’єкт profile описує профіль користувача на ігровій платформі. У його властивостях зберігається ім’я профілю username та кількість активних годин playTime, проведених у грі.
 
-Оголоси функцію getElementWidth, яка очікує три параметри, значення яких будуть задаватися під час її виклику: • content— перший параметр, ширина контенту • padding — другий параметр, значення горизонтального падінгу для кожної зі сторін • border — третій параметр, значення товщини бордера для кожної зі сторін Значення всіх параметрів будуть рядками формату Npx де N — це довільне число, ціле або дробове.
+const profile = {
+username: "Jacob",
+playTime: 300,
+};
 
-Доповни код функції так, щоб вона повертала число —загальну ширину елемента. При розрахунку загальної ширини орієнтуйся на те, що значення box-sizing дорівнює border-box.
+Доповни об’єкт profile методами для роботи з його властивостями.
 
+Метод changeUsername(newName) повинен приймати рядок (нове ім’я) в параметр newName та змінювати значення властивості username на нове. Нічого не повертає.
+Метод updatePlayTime(hours) повинен приймати число (кількість годин) у параметр hours та збільшити на нього значення властивості playTime. Нічого не повертає.
+Метод getInfo() має повертати рядок формату <Username> has <amount> active hours!, де <Username> — це ім’я профілю, а <amount> — кількість ігрових годин.
 Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи. У консоль будуть виведені результати її роботи.
 
-console.log(getElementWidth("50px", "8px", "4px")); // 74
-console.log(getElementWidth("60px", "12px", "8.5px")); // 101
-console.log(getElementWidth("200px", "0px", "0px")); // 200
+console.log(profile.getInfo()); // "Jacob has 300 active hours!"
+
+profile.changeUsername("Marco");
+console.log(profile.getInfo()); // "Marco has 300 active hours!"
+
+profile.updatePlayTime(20);
+console.log(profile.getInfo()); // "Marco has 320 active hours!"
 
 Залиш цей код для перевірки ментором.
 
 На що буде звертати увагу ментор при перевірці:
-
-Оголошена функція getElementWidth(content, padding, border)
-Виклик getElementWidth("50px", "8px", "4px") повертає число 74
-Виклик getElementWidth("60px", "12px", "8.5px") повертає число 101
-Виклик getElementWidth("200px", "0px", "0px") повертає число 200
-Виклик getElementWidth з будь якими-валідними аргументами повертає правильне значення
+Оголошена змінна profile
+Значення змінної profile — це об’єкт з властивостями username, playTime, getInfo, changeUsername і updatePlayTime
+Значення властивості getInfo — це функція
+Значення властивості changeUsername — це функція
+Значення властивості updatePlayTime — це функція
+Для звернення до властивостей об’єкта в його методах використовується this
